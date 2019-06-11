@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Berry.Utils;
 // Класс, отвечающий логику игры 
-public class SessionAssistant : MonoBehaviour 
+public class MatchThree : MonoBehaviour 
 {
    
-    public static SessionAssistant main;
+    public static MatchThree main;
     public bool squareCombination = true;
     public List<Combinations> combinations = new List<Combinations>();
     public List<ChipInfo> chipInfos = new List<ChipInfo>();

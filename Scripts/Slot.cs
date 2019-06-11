@@ -81,8 +81,8 @@ public class Slot : MonoBehaviour {
     }
 
     public void SetScore(float s) {
-        SessionAssistant.main.score += Mathf.RoundToInt(s * SessionAssistant.scoreC);
-        ScoreBubble.Bubbling(Mathf.RoundToInt(s * SessionAssistant.scoreC), transform);
+        MatchThree.main.score += Mathf.RoundToInt(s * MatchThree.scoreC);
+        ScoreBubble.Bubbling(Mathf.RoundToInt(s * MatchThree.scoreC), transform);
     }
 
 	

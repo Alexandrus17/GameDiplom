@@ -20,7 +20,7 @@ public class SleepTime : MonoBehaviour
 
     public void ChangeSlider ()
     {
-        int DeltaSleep = Mathf.Abs (SessionAssistant.main.TimeHour - 10);
+        int DeltaSleep = Mathf.Abs (MatchThree.main.TimeHour - 10);
         if (SliderSleep.value >= DeltaSleep)
             SliderSleep.value = DeltaSleep;
         TexSleep.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/InBedSleep"), SliderSleep.value, (int)(SliderSleep.value * Parametrs.main.AddEnergy));
@@ -42,14 +42,14 @@ public class SleepTime : MonoBehaviour
             for (int i = 1; i <= 12; i++)
             {
                 yield return new WaitForSeconds(0.1f);
-                SessionAssistant.main.TimeMinute += 5;
+                MatchThree.main.TimeMinute += 5;
             }
             SliderSleep.value = sleep;
-            SessionAssistant.main.energy += Parametrs.main.AddEnergy;
-            SessionAssistant.main.eat--;
-            SessionAssistant.main.hygiene--;
-            SessionAssistant.main.coffee -= 2;
-            if (SessionAssistant.main.eat <= 0 || SessionAssistant.main.energy <= 0 || SessionAssistant.main.hygiene <= 0 || SessionAssistant.main.coffee <= 0)
+            MatchThree.main.energy += Parametrs.main.AddEnergy;
+            MatchThree.main.eat--;
+            MatchThree.main.hygiene--;
+            MatchThree.main.coffee -= 2;
+            if (MatchThree.main.eat <= 0 || MatchThree.main.energy <= 0 || MatchThree.main.hygiene <= 0 || MatchThree.main.coffee <= 0)
             {
                 AudioAssistant.Shot("YouLose");
                 UIAssistant.main.ShowPage("YouLoseGame");

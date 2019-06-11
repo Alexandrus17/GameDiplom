@@ -29,16 +29,16 @@ public class FieldAssistant : MonoBehaviour {
             yield return 0;
         }
 
-        SessionAssistant.main.enabled = false;
+        MatchThree.main.enabled = false;
         yield return 0;
-        SessionAssistant.Reset();  
+        MatchThree.Reset();  
 
         yield return StartCoroutine(CreateField());
 
-		SessionAssistant.main.enabled = true;
-		SessionAssistant.main.eventCount ++;
+		MatchThree.main.enabled = true;
+		MatchThree.main.eventCount ++;
 
-        SessionAssistant.main.StartSession();
+        MatchThree.main.StartSession();
 
         GameCamera.main.transform.position = new Vector3(0, 20, -10);  
     }
@@ -93,7 +93,7 @@ public class FieldAssistant : MonoBehaviour {
 
             #region Create a chip
             if (!string.IsNullOrEmpty(settings.chip) && (slot.block == null || slot.block.CanItContainChip())) {
-                SessionAssistant.ChipInfo chipInfo = SessionAssistant.main.chipInfos.Find(x => x.name == settings.chip);
+                MatchThree.ChipInfo chipInfo = MatchThree.main.chipInfos.Find(x => x.name == settings.chip);
                 if (chipInfo != null) {
                     string key = chipInfo.contentName + (chipInfo.color ? Chip.chipTypes[Mathf.Clamp(settings.color_id, 0, Chip.colors.Length - 1)] : "");
                     GameObject c_obj = ContentAssistant.main.GetItem(key);
@@ -146,7 +146,7 @@ public class FieldAssistant : MonoBehaviour {
 
 	
 	public Chip GetNewSimpleChip (int2 coord, Vector3 position){
-		return GetNewSimpleChip(coord, position, SessionAssistant.main.colorMask[Random.Range(0, field.colorCount)]);
+		return GetNewSimpleChip(coord, position, MatchThree.main.colorMask[Random.Range(0, field.colorCount)]);
 	}
 
     
@@ -197,7 +197,7 @@ public class FieldAssistant : MonoBehaviour {
 	}
 
     public Chip GetNewBomb(int2 coord, string powerup, Vector3 position, int id) {
-        SessionAssistant.ChipInfo p = SessionAssistant.main.chipInfos.Find(pu => pu.name == powerup);
+        MatchThree.ChipInfo p = MatchThree.main.chipInfos.Find(pu => pu.name == powerup);
         if (p == null)
             return null;
         id = Mathf.Clamp(id, 0, Chip.colors.Length);
@@ -335,7 +335,7 @@ public class Field {
 			a[j] = a[j] - a[i];
 		}
 
-		SessionAssistant.main.colorMask = a;
+		MatchThree.main.colorMask = a;
 
         
         foreach (int2 pos in slots.Keys)

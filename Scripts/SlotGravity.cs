@@ -44,7 +44,7 @@ public class SlotGravity : MonoBehaviour {
 	}
 
 	public void  GravityReaction (){
-        if (!SessionAssistant.main.isPlaying) return; 
+        if (!MatchThree.main.isPlaying) return; 
 		
         if (!slot || !slot.chip) return;
 

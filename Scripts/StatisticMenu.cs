@@ -19,7 +19,7 @@ public class StatisticMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        Days.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/StatisticDays"), SessionAssistant.main.LifeDays); 
+        Days.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/StatisticDays"), MatchThree.main.LifeDays); 
         Wins.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/StatisticWins"), Parametrs.main.GameWins); 
         Money.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/StatisticMoney"), Parametrs.main.MoneyProfit); 
         MoneyMinus.text = System.String.Format(LeanLocalization.GetTranslationText("Novel/StatisticMoneyMinus"), Parametrs.main.MoneyOutgo); 

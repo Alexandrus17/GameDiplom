@@ -21,13 +21,13 @@ public class SimpleBomb : IBomb, IAnimateChip, IChipLogic {
 	void  Awake (){
 		_chip = GetComponent<Chip>();
         chip.chipType = "SimpleBomb";
-		birth = SessionAssistant.main.eventCount;
+		birth = MatchThree.main.eventCount;
 		AudioAssistant.Shot ("CreateBomb");
 	}
 
     
     public IEnumerator Destroying() {
-        if (birth == SessionAssistant.main.eventCount) {
+        if (birth == MatchThree.main.eventCount) {
 			chip.destroying = false;
 			yield break;
 		}
@@ -104,18 +104,18 @@ public class SimpleBomb : IBomb, IAnimateChip, IChipLogic {
     IEnumerator SimpleMixRoutine(Chip secondary) {
         chip.busy = true;
         chip.destroyable = false;
-        SessionAssistant.main.EventCounter();
+        MatchThree.main.EventCounter();
 
         Transform effect = ContentAssistant.main.GetItem("SimpleMixEffect").transform;
         effect.SetParent(Slot.folder);
         effect.position = transform.position;
         effect.GetComponent<Animation>().Play();
         AudioAssistant.Shot("BombCrush");
-        SessionAssistant.main.EventCounter();
+        MatchThree.main.EventCounter();
 
         chip.Minimize();
 
-        SessionAssistant.main.EventCounter();
+        MatchThree.main.EventCounter();
         int2 key = new int2();
         for (key.x = 0; key.x < LevelProfile.main.width; key.x++)
             for (key.y = 0; key.y < LevelProfile.main.height; key.y++)

@@ -21,12 +21,12 @@ public class LevelLoad : MonoBehaviour
 
     public void NextLevell ()
     {
-        SessionAssistant.main.coffeevarka = true;
-        SessionAssistant.main.multvarka = true;
-        SessionAssistant.main.icebox = true;
-        SessionAssistant.main.shower = true;
-        SessionAssistant.main.bed = true;
-        SessionAssistant.main.computer = true;
+        MatchThree.main.coffeevarka = true;
+        MatchThree.main.multvarka = true;
+        MatchThree.main.icebox = true;
+        MatchThree.main.shower = true;
+        MatchThree.main.bed = true;
+        MatchThree.main.computer = true;
 
         ChangeBG.main.UpdateStatusDevice();
         NumbOfLevel++;
@@ -39,21 +39,21 @@ public class LevelLoad : MonoBehaviour
 
     public void DebugPlus()
     {
-        SessionAssistant.main.eat++;
-        SessionAssistant.main.energy++;
-        SessionAssistant.main.hygiene++;
-        SessionAssistant.main.coffee++;
+        MatchThree.main.eat++;
+        MatchThree.main.energy++;
+        MatchThree.main.hygiene++;
+        MatchThree.main.coffee++;
         
-        SessionAssistant.main.TimeMinute += 50;
+        MatchThree.main.TimeMinute += 50;
     }
 
     public void DebugMinus()
     {
-        SessionAssistant.main.eat--;
-        SessionAssistant.main.energy--;
-        SessionAssistant.main.hygiene--;
-        SessionAssistant.main.coffee--;
-        SessionAssistant.main.money -= 50;
+        MatchThree.main.eat--;
+        MatchThree.main.energy--;
+        MatchThree.main.hygiene--;
+        MatchThree.main.coffee--;
+        MatchThree.main.money -= 50;
         
     }
 

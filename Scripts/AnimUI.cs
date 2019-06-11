@@ -13,11 +13,11 @@ public class AnimUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SessionAssistant.main.eat <= 10)
+        if (MatchThree.main.eat <= 10)
         {
             EatAnim.SetInteger("Color", 1);
         }
-        else if (SessionAssistant.main.eat <= 30)
+        else if (MatchThree.main.eat <= 30)
         {
             EatAnim.SetInteger("Color", 2);
         }
@@ -26,11 +26,11 @@ public class AnimUI : MonoBehaviour
             EatAnim.SetInteger("Color", 3);
         }
 
-        if (SessionAssistant.main.coffee <= 10)
+        if (MatchThree.main.coffee <= 10)
         {
             CoffeeAnim.SetInteger("Color", 1);
         }
-        else if (SessionAssistant.main.coffee <= 30)
+        else if (MatchThree.main.coffee <= 30)
         {
             CoffeeAnim.SetInteger("Color", 2);
         }
@@ -39,11 +39,11 @@ public class AnimUI : MonoBehaviour
             CoffeeAnim.SetInteger("Color", 3);
         }
 
-        if (SessionAssistant.main.hygiene <= 10)
+        if (MatchThree.main.hygiene <= 10)
         {
             HygAnim.SetInteger("Color", 1);
         }
-        else if (SessionAssistant.main.hygiene <= 30)
+        else if (MatchThree.main.hygiene <= 30)
         {
             HygAnim.SetInteger("Color", 2);
         }
@@ -52,11 +52,11 @@ public class AnimUI : MonoBehaviour
             HygAnim.SetInteger("Color", 3);
         }
 
-        if (SessionAssistant.main.energy <= 10)
+        if (MatchThree.main.energy <= 10)
         {
             EnergAnim.SetInteger("Color", 1);
         }
-        else if (SessionAssistant.main.energy <= 30)
+        else if (MatchThree.main.energy <= 30)
         {
             EnergAnim.SetInteger("Color", 2);
         }
@@ -65,7 +65,7 @@ public class AnimUI : MonoBehaviour
             EnergAnim.SetInteger("Color", 3);
         }
 
-        if (SessionAssistant.main.money >= (int)(Parametrs.main.Rent * Parametrs.main.Rentincrease))
+        if (MatchThree.main.money >= (int)(Parametrs.main.Rent * Parametrs.main.Rentincrease))
         {
             MoneyAnim.SetBool("Low", false);
         }

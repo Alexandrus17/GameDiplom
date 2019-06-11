@@ -23,13 +23,13 @@ public class ScoreBarStar : MonoBehaviour {
         transform.localScale = Vector3.zero;
         switch (starType) {
             case StarType.First:
-                filled = SessionAssistant.main.stars >= 1;
+                filled = MatchThree.main.stars >= 1;
                 break;
             case StarType.Second:
-                filled = SessionAssistant.main.stars >= 2;
+                filled = MatchThree.main.stars >= 2;
                 break;
             case StarType.Third:
-                filled = SessionAssistant.main.stars >= 3;
+                filled = MatchThree.main.stars >= 3;
                 break;
         }
 

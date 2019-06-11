@@ -49,8 +49,8 @@ public class LevelEditor : MetaEditor {
     List<int2> teleportTargets = new List<int2>();
     SlotSettings target_selection;
     bool wait_target = false;
-    Dictionary<string, SessionAssistant.ChipInfo> chipInfos = new Dictionary<string, SessionAssistant.ChipInfo>();
-    Dictionary<string, SessionAssistant.BlockInfo> blockInfos = new Dictionary<string, SessionAssistant.BlockInfo>();
+    Dictionary<string, MatchThree.ChipInfo> chipInfos = new Dictionary<string, MatchThree.ChipInfo>();
+    Dictionary<string, MatchThree.BlockInfo> blockInfos = new Dictionary<string, MatchThree.BlockInfo>();
 
     List<int2> selected = new List<int2>();
     #region Icons
@@ -76,8 +76,8 @@ public class LevelEditor : MetaEditor {
             return;
         level = (Level) metaTarget;
 
-        if (SessionAssistant.main == null)
-            SessionAssistant.main = FindObjectOfType<SessionAssistant>();
+        if (MatchThree.main == null)
+            MatchThree.main = FindObjectOfType<MatchThree>();
 
         Level.all = FindObjectsOfType<Level>().ToDictionary(x => x.profile.level, x => x.profile);
 
@@ -108,8 +108,8 @@ public class LevelEditor : MetaEditor {
 
         #region Temporary arrays
         slots = profile.slots.ToDictionary(x => x.position, x => x);
-        chipInfos = SessionAssistant.main.chipInfos.ToDictionary(x => x.name, x => x);
-        blockInfos = SessionAssistant.main.blockInfos.ToDictionary(x => x.name, x => x);
+        chipInfos = MatchThree.main.chipInfos.ToDictionary(x => x.name, x => x);
+        blockInfos = MatchThree.main.blockInfos.ToDictionary(x => x.name, x => x);
         #endregion
 
         if (profile.levelID == 0) {
@@ -379,10 +379,10 @@ public class LevelEditor : MetaEditor {
         #endregion
 
         #region Chip property
-        if (SessionAssistant.main.chipInfos.Count > 0) {
+        if (MatchThree.main.chipInfos.Count > 0) {
             List<string> chips = new List<string>();
             chips.Add("Empty");
-            foreach (SessionAssistant.ChipInfo chip in SessionAssistant.main.chipInfos)
+            foreach (MatchThree.ChipInfo chip in MatchThree.main.chipInfos)
                 if (!chips.Contains(chip.name))
                     chips.Add(chip.name);
 
@@ -443,10 +443,10 @@ public class LevelEditor : MetaEditor {
         #endregion
 
         #region Block property
-        if (SessionAssistant.main.blockInfos.Count > 0) {
-            Dictionary<string, SessionAssistant.BlockInfo> blocks = new Dictionary<string, SessionAssistant.BlockInfo>();
+        if (MatchThree.main.blockInfos.Count > 0) {
+            Dictionary<string, MatchThree.BlockInfo> blocks = new Dictionary<string, MatchThree.BlockInfo>();
             blocks.Add("Empty", null);
-            foreach (SessionAssistant.BlockInfo block in SessionAssistant.main.blockInfos)
+            foreach (MatchThree.BlockInfo block in MatchThree.main.blockInfos)
                 if (!blocks.ContainsKey(block.name))
                     blocks.Add(block.name, block);
             List<string> block_keys = new List<string>(blocks.Keys);
@@ -595,7 +595,7 @@ public class LevelEditor : MetaEditor {
         
         if (slots.ContainsKey(coord) && slots[coord].block_type != "") {
             GUI.DrawTexture(rect, blockIcon);
-            SessionAssistant.BlockInfo info = blockInfos[slots[coord].block_type];
+            MatchThree.BlockInfo info = blockInfos[slots[coord].block_type];
             GUI.Box(new Rect(rect.x, rect.y + rect.height / 2, rect.width, rect.height / 2),
                 info.shirtName + (info.levelCount > 1 ? (":" + (slots[coord].block_level + 1).ToString()) : ""), labelStyle);
         }

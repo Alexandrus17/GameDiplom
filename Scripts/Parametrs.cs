@@ -101,10 +101,10 @@ public class Parametrs : MonoBehaviour
 
     public void Minus()
     {
-        SessionAssistant.main.eat--;
-        SessionAssistant.main.energy--;
-        SessionAssistant.main.hygiene--;
-        SessionAssistant.main.coffee--;
+        MatchThree.main.eat--;
+        MatchThree.main.energy--;
+        MatchThree.main.hygiene--;
+        MatchThree.main.coffee--;
     }
     
 
@@ -112,23 +112,23 @@ public class Parametrs : MonoBehaviour
     public void NewGame()  //30 переменных
     {
         SteamAchiments.main.TakeAchievement("NEW_GAME");
-        SessionAssistant.main.LifeDays = 1;
-        SessionAssistant.main.TimeHour = 10;
-        SessionAssistant.main.TimeMinute = 0;
+        MatchThree.main.LifeDays = 1;
+        MatchThree.main.TimeHour = 10;
+        MatchThree.main.TimeMinute = 0;
         LastNalogDay = 1; //в какой последний день увеличивались налоги
 
-        SessionAssistant.main.eat = 25;
-        SessionAssistant.main.coffee = 25;
-        SessionAssistant.main.hygiene = 25;
-        SessionAssistant.main.energy = 95;
-        SessionAssistant.main.money = 250;
+        MatchThree.main.eat = 25;
+        MatchThree.main.coffee = 25;
+        MatchThree.main.hygiene = 25;
+        MatchThree.main.energy = 95;
+        MatchThree.main.money = 250;
 
-        SessionAssistant.main.coffeevarka = true;
-        SessionAssistant.main.multvarka = true;
-        SessionAssistant.main.icebox = true;
-        SessionAssistant.main.shower = true;
-        SessionAssistant.main.bed = true;
-        SessionAssistant.main.computer = false;
+        MatchThree.main.coffeevarka = true;
+        MatchThree.main.multvarka = true;
+        MatchThree.main.icebox = true;
+        MatchThree.main.shower = true;
+        MatchThree.main.bed = true;
+        MatchThree.main.computer = false;
 
         IncriseMoney = 1;  // общее увеличение доходв от компа 
         // Налоги
@@ -161,23 +161,23 @@ public class Parametrs : MonoBehaviour
     public void LoadGame()  //30 переменных
     {
        // SteamAchiments.main.LockAchiv("ACH_TRAVEL_FAR_ACCUM");
-        SessionAssistant.main.LifeDays = FileBasedPrefs.GetInt("LifeDays");
-        SessionAssistant.main.TimeHour = FileBasedPrefs.GetInt("TimeHour");
-        SessionAssistant.main.TimeMinute = FileBasedPrefs.GetInt("TimeMinute");
+        MatchThree.main.LifeDays = FileBasedPrefs.GetInt("LifeDays");
+        MatchThree.main.TimeHour = FileBasedPrefs.GetInt("TimeHour");
+        MatchThree.main.TimeMinute = FileBasedPrefs.GetInt("TimeMinute");
         LastNalogDay = FileBasedPrefs.GetInt("LastNalogDay");
 
-        SessionAssistant.main.eat = FileBasedPrefs.GetInt("eat");
-        SessionAssistant.main.energy = FileBasedPrefs.GetInt("energy");
-        SessionAssistant.main.coffee = FileBasedPrefs.GetInt("coffee");
-        SessionAssistant.main.hygiene = FileBasedPrefs.GetInt("hygiene");
-        SessionAssistant.main.money = FileBasedPrefs.GetInt("money");
+        MatchThree.main.eat = FileBasedPrefs.GetInt("eat");
+        MatchThree.main.energy = FileBasedPrefs.GetInt("energy");
+        MatchThree.main.coffee = FileBasedPrefs.GetInt("coffee");
+        MatchThree.main.hygiene = FileBasedPrefs.GetInt("hygiene");
+        MatchThree.main.money = FileBasedPrefs.GetInt("money");
 
-        SessionAssistant.main.coffeevarka = FileBasedPrefs.GetBool("coffeevarka");
-        SessionAssistant.main.multvarka = FileBasedPrefs.GetBool("multvarka");
-        SessionAssistant.main.icebox = FileBasedPrefs.GetBool("icebox");
-        SessionAssistant.main.shower = FileBasedPrefs.GetBool("shower");
-        SessionAssistant.main.bed = FileBasedPrefs.GetBool("bed");
-        SessionAssistant.main.computer = FileBasedPrefs.GetBool("computer");
+        MatchThree.main.coffeevarka = FileBasedPrefs.GetBool("coffeevarka");
+        MatchThree.main.multvarka = FileBasedPrefs.GetBool("multvarka");
+        MatchThree.main.icebox = FileBasedPrefs.GetBool("icebox");
+        MatchThree.main.shower = FileBasedPrefs.GetBool("shower");
+        MatchThree.main.bed = FileBasedPrefs.GetBool("bed");
+        MatchThree.main.computer = FileBasedPrefs.GetBool("computer");
 
         flowchart.SetBooleanVariable("FirstKitchen", FileBasedPrefs.GetBool("FirstKitchen"));
         flowchart.SetBooleanVariable("FirstShower", FileBasedPrefs.GetBool("FirstShower"));
@@ -209,7 +209,7 @@ public class Parametrs : MonoBehaviour
         int random = Random.Range(1, 3);
         if (random != 1)
         {
-            SessionAssistant.main.bed = false;
+            MatchThree.main.bed = false;
             TexSaveGame.text = LeanLocalization.GetTranslationText("Parametrs/SaveBedBroken");
             ChangeBG.main.UpdateStatusDevice();
             AudioAssistant.Shot("Break");
@@ -219,23 +219,23 @@ public class Parametrs : MonoBehaviour
             TexSaveGame.text = LeanLocalization.GetTranslationText("Parametrs/SaveBedWork");
         }
 
-        FileBasedPrefs.SetInt("LifeDays", SessionAssistant.main.LifeDays);
-        FileBasedPrefs.SetInt("TimeHour", SessionAssistant.main.TimeHour);
-        FileBasedPrefs.SetInt("TimeMinute", SessionAssistant.main.TimeMinute);
+        FileBasedPrefs.SetInt("LifeDays", MatchThree.main.LifeDays);
+        FileBasedPrefs.SetInt("TimeHour", MatchThree.main.TimeHour);
+        FileBasedPrefs.SetInt("TimeMinute", MatchThree.main.TimeMinute);
         FileBasedPrefs.SetInt("LastNalogDay", LastNalogDay);
 
-        FileBasedPrefs.SetInt("eat", SessionAssistant.main.eat);
-        FileBasedPrefs.SetInt("energy", SessionAssistant.main.energy);
-        FileBasedPrefs.SetInt("coffee", SessionAssistant.main.coffee);
-        FileBasedPrefs.SetInt("hygiene", SessionAssistant.main.hygiene);
-        FileBasedPrefs.SetInt("money", SessionAssistant.main.money);
+        FileBasedPrefs.SetInt("eat", MatchThree.main.eat);
+        FileBasedPrefs.SetInt("energy", MatchThree.main.energy);
+        FileBasedPrefs.SetInt("coffee", MatchThree.main.coffee);
+        FileBasedPrefs.SetInt("hygiene", MatchThree.main.hygiene);
+        FileBasedPrefs.SetInt("money", MatchThree.main.money);
 
-        FileBasedPrefs.SetBool("coffeevarka", SessionAssistant.main.coffeevarka);
-        FileBasedPrefs.SetBool("multvarka", SessionAssistant.main.multvarka);
-        FileBasedPrefs.SetBool("icebox", SessionAssistant.main.icebox);
-        FileBasedPrefs.SetBool("shower", SessionAssistant.main.shower);
-        FileBasedPrefs.SetBool("bed", SessionAssistant.main.bed);
-        FileBasedPrefs.SetBool("computer", SessionAssistant.main.computer);
+        FileBasedPrefs.SetBool("coffeevarka", MatchThree.main.coffeevarka);
+        FileBasedPrefs.SetBool("multvarka", MatchThree.main.multvarka);
+        FileBasedPrefs.SetBool("icebox", MatchThree.main.icebox);
+        FileBasedPrefs.SetBool("shower", MatchThree.main.shower);
+        FileBasedPrefs.SetBool("bed", MatchThree.main.bed);
+        FileBasedPrefs.SetBool("computer", MatchThree.main.computer);
 
         FileBasedPrefs.SetFloat("IncriseMoney", (float)IncriseMoney);
 
@@ -279,19 +279,19 @@ public class Parametrs : MonoBehaviour
 
     public string TextGameLose()
     {
-        if (SessionAssistant.main.hygiene <= 0)
+        if (MatchThree.main.hygiene <= 0)
         {
             return LeanLocalization.GetTranslationText("Parametrs/DeadHyg");
         }
-        if (SessionAssistant.main.eat <= 0)
+        if (MatchThree.main.eat <= 0)
         {
             return LeanLocalization.GetTranslationText("Parametrs/DeadEat");
         }
-        if (SessionAssistant.main.energy <= 0)
+        if (MatchThree.main.energy <= 0)
         {
             return LeanLocalization.GetTranslationText("Parametrs/DeadEner");
         }
-        if (SessionAssistant.main.coffee <= 0)
+        if (MatchThree.main.coffee <= 0)
         {
             return LeanLocalization.GetTranslationText("Parametrs/DeadCoffe");
         }
@@ -306,27 +306,27 @@ public class Parametrs : MonoBehaviour
         switch ((int)((LevelProfile.main.level - 1) / 3f) + 1)
         {
             case 1:
-                SessionAssistant.main.coffeevarka = true;
+                MatchThree.main.coffeevarka = true;
                 text = LeanLocalization.GetTranslationText("Parametrs/WorkCoffe");
                 break;
             case 2:
-                SessionAssistant.main.multvarka = true;
+                MatchThree.main.multvarka = true;
                 text = LeanLocalization.GetTranslationText("Parametrs/WorkMulti");
                 break;
             case 3:
-                SessionAssistant.main.icebox = true;
+                MatchThree.main.icebox = true;
                 text = LeanLocalization.GetTranslationText("Parametrs/WorkIcebox");
                 break;
             case 4:
-                SessionAssistant.main.shower = true;
+                MatchThree.main.shower = true;
                 text = LeanLocalization.GetTranslationText("Parametrs/WorkShow");
                 break;
             case 5:
-                SessionAssistant.main.bed = true;
+                MatchThree.main.bed = true;
                 text = LeanLocalization.GetTranslationText("Parametrs/Workbed");
                 break;
             case 6:
-                SessionAssistant.main.computer = true;
+                MatchThree.main.computer = true;
                 flowchart.SetBooleanVariable("HaveCompDialog", false);
                 text = LeanLocalization.GetTranslationText("Parametrs/Workcomp");
                 break;
@@ -407,22 +407,22 @@ public class Parametrs : MonoBehaviour
         switch (Device)
         {
             case 1://кофе
-                status = SessionAssistant.main.coffeevarka;
+                status = MatchThree.main.coffeevarka;
                 break;
             case 2://еда
-                status = SessionAssistant.main.multvarka;
+                status = MatchThree.main.multvarka;
                 break;
             case 3://холодос
-                status = SessionAssistant.main.icebox;
+                status = MatchThree.main.icebox;
                 break;
             case 4:// душ
-                status = SessionAssistant.main.shower;
+                status = MatchThree.main.shower;
                 break;
             case 5:// кровать
-                status = SessionAssistant.main.bed;
+                status = MatchThree.main.bed;
                 break;
             case 6:
-                status = SessionAssistant.main.computer;
+                status = MatchThree.main.computer;
                 break;
             default:
                 status = false;
@@ -452,14 +452,14 @@ public class Parametrs : MonoBehaviour
                 {
                     AudioAssistant.Shot("Drink");
                     numcoffee--;
-                    SessionAssistant.main.coffee += AddititionParameters;
-                    SessionAssistant.main.energy += AddititionParameters/5;
+                    MatchThree.main.coffee += AddititionParameters;
+                    MatchThree.main.energy += AddititionParameters/5;
                     SteamAchiments.main.TakeAchievement("DRINK");
                     Debug.Log("Увеличение кофе на " + AddititionParameters);
                     flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("ParametrsUse/VoicCoffe"), AddititionParameters, AddititionParameters / 5, numcoffee));
                     if (random == 1)
                     {
-                        SessionAssistant.main.coffeevarka = false;
+                        MatchThree.main.coffeevarka = false;
                         //добавить звук сломавшейся вещи
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadCoffe"));
                         flowchart.SetBooleanVariable("DeviceStatus", false);  
@@ -469,7 +469,7 @@ public class Parametrs : MonoBehaviour
                     {
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadCoffe2"));
                     }
-                    SessionAssistant.main.TimeMinute += AddTime;
+                    MatchThree.main.TimeMinute += AddTime;
                 }
                 else
                 {
@@ -485,13 +485,13 @@ public class Parametrs : MonoBehaviour
                 {
                     AudioAssistant.Shot("Eat");
                     numproducts--;
-                    SessionAssistant.main.eat += AddititionParameters;
+                    MatchThree.main.eat += AddititionParameters;
                     SteamAchiments.main.TakeAchievement("EAT");
                     Debug.Log("Увеличение еды на " + AddititionParameters);
                     flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("ParametrsUse/VoceEat"), AddititionParameters, numproducts));
                     if (random == 1)
                     {
-                        SessionAssistant.main.multvarka = false;
+                        MatchThree.main.multvarka = false;
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadEat"));
                         flowchart.SetBooleanVariable("DeviceStatus", false);
                         flowchart.SetBooleanVariable("GoodNews", false);
@@ -500,7 +500,7 @@ public class Parametrs : MonoBehaviour
                     {
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadEat2"));
                     }
-                    SessionAssistant.main.TimeMinute += AddTime;
+                    MatchThree.main.TimeMinute += AddTime;
                 }
                 else
                 {
@@ -512,18 +512,18 @@ public class Parametrs : MonoBehaviour
                 StartNovel.main.MesEndOptions();
                 break;
             case 3://холодос
-                if (SessionAssistant.main.money >= (int)(PriceProduct * Priceincrease * NDS * NumProductPay))
+                if (MatchThree.main.money >= (int)(PriceProduct * Priceincrease * NDS * NumProductPay))
                 {
 
                     StartCoroutine(MoneyMinusAnim());
-                    SessionAssistant.main.money -= (int)(PriceProduct * Priceincrease * NDS * NumProductPay);
+                    MatchThree.main.money -= (int)(PriceProduct * Priceincrease * NDS * NumProductPay);
                     MoneyOutgo += (int)(PriceProduct * Priceincrease * NDS * NumProductPay);
                     numproducts += NumProductPay;
                     Debug.Log("Увеличение запасов продуктов на " + NumProductPay);
                     flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("ParametrsUse/VoceIceBox"), NumProductPay));
                     if (random == 1)
                     {
-                        SessionAssistant.main.icebox = false;
+                        MatchThree.main.icebox = false;
                         //добавить звук сломавшейся вещи
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadIcebox"));
                         flowchart.SetBooleanVariable("DeviceStatus", false);
@@ -533,7 +533,7 @@ public class Parametrs : MonoBehaviour
                     {
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadIcebox2"));
                     }
-                    SessionAssistant.main.TimeMinute += AddTime;
+                    MatchThree.main.TimeMinute += AddTime;
                 }
                 else
                 {
@@ -546,13 +546,13 @@ public class Parametrs : MonoBehaviour
                 break;
             case 4:// душ
                 AudioAssistant.Shot("Shower");
-                SessionAssistant.main.hygiene += AddititionParameters;
-                SessionAssistant.main.energy += AddititionParameters/6;
+                MatchThree.main.hygiene += AddititionParameters;
+                MatchThree.main.energy += AddititionParameters/6;
                 Debug.Log("Увеличение гигиены на " + AddititionParameters);
                 flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("ParametrsUse/VoceHyg"), AddititionParameters, AddititionParameters / 6 + "."));
                 if (random == 1)
                 {
-                    SessionAssistant.main.shower = false;
+                    MatchThree.main.shower = false;
                     //добавить звук сломавшейся вещи
                     flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadHyg"));
                     flowchart.SetBooleanVariable("DeviceStatus", false);
@@ -562,11 +562,11 @@ public class Parametrs : MonoBehaviour
                 {
                     flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadHyg2"));
                 }
-                SessionAssistant.main.TimeMinute += AddTime;
+                MatchThree.main.TimeMinute += AddTime;
                 StartNovel.main.MesEndOptions();
                 break;
             case 5:// кровать
-                if (SessionAssistant.main.TimeHour >= 21 || SessionAssistant.main.TimeHour <= 2)  // true если хоть один true
+                if (MatchThree.main.TimeHour >= 21 || MatchThree.main.TimeHour <= 2)  // true если хоть один true
                 {
                     SteamAchiments.main.TakeAchievement("BED");
                     flowchart.SetBooleanVariable("NotCompDialog", false);  // для того, чтобы можно было вызывать диплог со сломаным пк
@@ -574,7 +574,7 @@ public class Parametrs : MonoBehaviour
                     // flowchart.SetStringVariable("VoicText", "Увеличение энергии."); - В функции NewDay это есть
                     if (random != 1)
                     {
-                        SessionAssistant.main.bed = false;
+                        MatchThree.main.bed = false;
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadBed"));
                         flowchart.SetBooleanVariable("DeviceStatus", false);
                         flowchart.SetBooleanVariable("GoodNews", false);
@@ -648,10 +648,10 @@ public class Parametrs : MonoBehaviour
                 flowchart.SetStringVariable("ArkashaText", "Ошибка статуса");
                 break;
             case 3://холодос
-                if (SessionAssistant.main.money >= (int)(PriceCoffee * Priceincrease * NDS * NumProductPay))
+                if (MatchThree.main.money >= (int)(PriceCoffee * Priceincrease * NDS * NumProductPay))
                 {
                     StartCoroutine(MoneyMinusAnim());
-                    SessionAssistant.main.money -= (int)(PriceCoffee * Priceincrease * NDS * NumProductPay);
+                    MatchThree.main.money -= (int)(PriceCoffee * Priceincrease * NDS * NumProductPay);
                     MoneyOutgo += (int)(PriceCoffee * Priceincrease * NDS * NumProductPay);
                     numcoffee += NumProductPay;
                     Debug.Log("Увеличение запасов кофе на " + NumProductPay);
@@ -659,7 +659,7 @@ public class Parametrs : MonoBehaviour
                     flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("ParametrsUse/VoceIcebox7"), NumProductPay));
                     if (random == 1)
                     {
-                        SessionAssistant.main.icebox = false;
+                        MatchThree.main.icebox = false;
                         //добавить звук сломавшейся вещи
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadIcebox8"));
                         flowchart.SetBooleanVariable("DeviceStatus", false);
@@ -669,7 +669,7 @@ public class Parametrs : MonoBehaviour
                     {
                         flowchart.SetStringVariable("ArkashaText", LeanLocalization.GetTranslationText("ParametrsUse/ArkadIcebox9"));
                     }
-                    SessionAssistant.main.TimeMinute += AddTime;
+                    MatchThree.main.TimeMinute += AddTime;
                 }
                 else
                 {
@@ -701,25 +701,25 @@ public class Parametrs : MonoBehaviour
         switch (Device)
         {
             case 1://кофе
-                SessionAssistant.main.StartForLevel(Random.Range(1, 4));
+                MatchThree.main.StartForLevel(Random.Range(1, 4));
                 break;
             case 2://еда
-                SessionAssistant.main.StartForLevel(Random.Range(4, 7));
+                MatchThree.main.StartForLevel(Random.Range(4, 7));
                 break;
             case 3://холодос
-                SessionAssistant.main.StartForLevel(Random.Range(7, 10));
+                MatchThree.main.StartForLevel(Random.Range(7, 10));
                 break;
             case 4:// душ
-                SessionAssistant.main.StartForLevel(Random.Range(10, 13));
+                MatchThree.main.StartForLevel(Random.Range(10, 13));
                 break;
             case 5:// кровать
-                SessionAssistant.main.StartForLevel(Random.Range(13, 16));
+                MatchThree.main.StartForLevel(Random.Range(13, 16));
                 break;
             case 6://комп
-                SessionAssistant.main.StartForLevel(Random.Range(16, 19));
+                MatchThree.main.StartForLevel(Random.Range(16, 19));
                 break;
             case 7://компUP
-                SessionAssistant.main.StartForLevel(Random.Range(19, 22));
+                MatchThree.main.StartForLevel(Random.Range(19, 22));
                 break;
             default:
                 Debug.LogError("Ошибка загрузки уровня");
@@ -729,7 +729,7 @@ public class Parametrs : MonoBehaviour
 
     public void TextStatusDevice ()
     {
-        if (SessionAssistant.main.coffeevarka)
+        if (MatchThree.main.coffeevarka)
         {
             TexStatusCoffee.color = Color.green;
             TexStatusCoffee.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -740,7 +740,7 @@ public class Parametrs : MonoBehaviour
             TexStatusCoffee.text = LeanLocalization.GetTranslationText("Parametrs/Break");
         }
 
-        if (SessionAssistant.main.multvarka)
+        if (MatchThree.main.multvarka)
         {
             TexStatusMulti.color = Color.green;
             TexStatusMulti.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -751,7 +751,7 @@ public class Parametrs : MonoBehaviour
             TexStatusMulti.text = LeanLocalization.GetTranslationText("Parametrs/Break");
         }
 
-        if (SessionAssistant.main.icebox)
+        if (MatchThree.main.icebox)
         {
             TexStatusIcebox.color = Color.green;
             TexStatusIcebox.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -762,7 +762,7 @@ public class Parametrs : MonoBehaviour
             TexStatusIcebox.text = LeanLocalization.GetTranslationText("Parametrs/Break");
         }
 
-        if (SessionAssistant.main.shower)
+        if (MatchThree.main.shower)
         {
             TexStatusShower.color = Color.green;
             TexStatusShower.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -773,7 +773,7 @@ public class Parametrs : MonoBehaviour
             TexStatusShower.text = LeanLocalization.GetTranslationText("Parametrs/Break");
         }
 
-        if (SessionAssistant.main.bed)
+        if (MatchThree.main.bed)
         {
             TexStatusBed.color = Color.green;
             TexStatusBed.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -784,7 +784,7 @@ public class Parametrs : MonoBehaviour
             TexStatusBed.text = LeanLocalization.GetTranslationText("Parametrs/Break");
         }
 
-        if (SessionAssistant.main.computer)
+        if (MatchThree.main.computer)
         {
             TexStatusComputer.color = Color.green;
             TexStatusComputer.text = LeanLocalization.GetTranslationText("Parametrs/Work");
@@ -799,15 +799,15 @@ public class Parametrs : MonoBehaviour
     public bool NewDay (int TimeSleep)
     {
         
-        if (SessionAssistant.main.LifeDays==5)
+        if (MatchThree.main.LifeDays==5)
             SteamAchiments.main.TakeAchievement("5_DAYS");
-        if (SessionAssistant.main.LifeDays==10)
+        if (MatchThree.main.LifeDays==10)
             SteamAchiments.main.TakeAchievement("10_DAYS");
 
         flowchart.SetStringVariable("VoicText", System.String.Format(LeanLocalization.GetTranslationText("Parametrs/NewDayVoic"), TimeSleep * AddEnergy));
-        if (LastNalogDay!=SessionAssistant.main.LifeDays)
+        if (LastNalogDay!=MatchThree.main.LifeDays)
         {
-            LastNalogDay = SessionAssistant.main.LifeDays;
+            LastNalogDay = MatchThree.main.LifeDays;
             TexPayRent.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/NewDayPayRent"), (int)(Rent * Rentincrease));
             return true;
         }
@@ -819,12 +819,12 @@ public class Parametrs : MonoBehaviour
 
     public void PayRent ()
     {
-        if (SessionAssistant.main.money >= (int)(Rent * Rentincrease))
+        if (MatchThree.main.money >= (int)(Rent * Rentincrease))
         {
             StartCoroutine(MoneyMinusAnim());
             SteamAchiments.main.TakeAchievement("PAY");
             ChangeNalog();
-            SessionAssistant.main.money -= (int)(Rent * Rentincrease);
+            MatchThree.main.money -= (int)(Rent * Rentincrease);
             MoneyOutgo += (int)(Rent * Rentincrease);
             UIAssistant.main.ShowPage("NewNalogPopup");
         }
@@ -838,7 +838,7 @@ public class Parametrs : MonoBehaviour
 
     public bool ChekLoseGame ()
     {
-        if (SessionAssistant.main.eat <= 0 || SessionAssistant.main.energy <= 0 || SessionAssistant.main.hygiene <= 0 || SessionAssistant.main.coffee <= 0)
+        if (MatchThree.main.eat <= 0 || MatchThree.main.energy <= 0 || MatchThree.main.hygiene <= 0 || MatchThree.main.coffee <= 0)
         {
             AudioAssistant.Shot("YouLose");
             UIAssistant.main.ShowPage("YouLoseGame");
@@ -924,19 +924,19 @@ public class Parametrs : MonoBehaviour
 
     private void Update()
     {
-        if (SessionAssistant.main.TimeMinute>=60)
+        if (MatchThree.main.TimeMinute>=60)
         {
-            SessionAssistant.main.TimeMinute -= 60;
-            SessionAssistant.main.TimeHour++;
-            if (SessionAssistant.main.computer)
+            MatchThree.main.TimeMinute -= 60;
+            MatchThree.main.TimeHour++;
+            if (MatchThree.main.computer)
             {
                 StartCoroutine(MoneyAddAnim());
                 int random = Random.Range(1, 11);
-                SessionAssistant.main.money += (int)(AddMoney * Nalogi * IncriseMoney);
+                MatchThree.main.money += (int)(AddMoney * Nalogi * IncriseMoney);
                 MoneyProfit += (int)(AddMoney * Nalogi * IncriseMoney);
                 if (random == 1)
                 {
-                    SessionAssistant.main.computer = false;
+                    MatchThree.main.computer = false;
                     ChangeBG.main.UpdateStatusDevice();
                     AudioAssistant.Shot("Break");
                     StartNovel.main.MesCompMinus();
@@ -944,44 +944,44 @@ public class Parametrs : MonoBehaviour
             }
         }
 
-        if (SessionAssistant.main.TimeHour>=24)
+        if (MatchThree.main.TimeHour>=24)
         {
-            SessionAssistant.main.TimeHour -= 24;
-            SessionAssistant.main.LifeDays++;
+            MatchThree.main.TimeHour -= 24;
+            MatchThree.main.LifeDays++;
         }
 
-        if (SessionAssistant.main.eat>=100)
+        if (MatchThree.main.eat>=100)
         {
-            SessionAssistant.main.eat = 100;
+            MatchThree.main.eat = 100;
         }
-        if (SessionAssistant.main.energy >= 100)
+        if (MatchThree.main.energy >= 100)
         {
-            SessionAssistant.main.energy = 100;
+            MatchThree.main.energy = 100;
         }
-        if (SessionAssistant.main.hygiene >= 100)
+        if (MatchThree.main.hygiene >= 100)
         {
-            SessionAssistant.main.hygiene = 100;
+            MatchThree.main.hygiene = 100;
         }
-        if (SessionAssistant.main.coffee >= 100)
+        if (MatchThree.main.coffee >= 100)
         {
-            SessionAssistant.main.coffee = 100;
+            MatchThree.main.coffee = 100;
         }
 
 
-        SlEat.value = SessionAssistant.main.eat;
-        SlEnergy.value = SessionAssistant.main.energy;
-        SlCoffee.value = SessionAssistant.main.coffee;
-        SlHygiene.value = SessionAssistant.main.hygiene;
+        SlEat.value = MatchThree.main.eat;
+        SlEnergy.value = MatchThree.main.energy;
+        SlCoffee.value = MatchThree.main.coffee;
+        SlHygiene.value = MatchThree.main.hygiene;
         
 
-        TeEat.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeEat"), SessionAssistant.main.eat);
-        TeEnergy.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeEnergy"), SessionAssistant.main.energy);
-        TexCoffee.text= System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeCoffe"), SessionAssistant.main.coffee);
-        TexHygiene.text= System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeHygiene"), SessionAssistant.main.hygiene);
-        TexMoney.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeMoney"), SessionAssistant.main.money);
+        TeEat.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeEat"), MatchThree.main.eat);
+        TeEnergy.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeEnergy"), MatchThree.main.energy);
+        TexCoffee.text= System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeCoffe"), MatchThree.main.coffee);
+        TexHygiene.text= System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeHygiene"), MatchThree.main.hygiene);
+        TexMoney.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeMoney"), MatchThree.main.money);
 
-        TexDays.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeDay"), SessionAssistant.main.LifeDays);
-        TexTime.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeTime"), SessionAssistant.main.TimeHour, (SessionAssistant.main.TimeMinute >= 10 ? "" + SessionAssistant.main.TimeMinute : "0" + SessionAssistant.main.TimeMinute));
+        TexDays.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeDay"), MatchThree.main.LifeDays);
+        TexTime.text = System.String.Format(LeanLocalization.GetTranslationText("Parametrs/TeTime"), MatchThree.main.TimeHour, (MatchThree.main.TimeMinute >= 10 ? "" + MatchThree.main.TimeMinute : "0" + MatchThree.main.TimeMinute));
     }
 
 

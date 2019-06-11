@@ -19,7 +19,7 @@ public class DescriptionGameLose : MonoBehaviour
         string descrition = Parametrs.main.TextGameLose();
 
         text.text += descrition + " ";
-        descrition = System.String.Format(Lean.Localization.LeanLocalization.GetTranslationText("Match/LoseGameDescrip"), SessionAssistant.main.LifeDays);
+        descrition = System.String.Format(Lean.Localization.LeanLocalization.GetTranslationText("Match/LoseGameDescrip"), MatchThree.main.LifeDays);
 
         text.text += descrition;
     }

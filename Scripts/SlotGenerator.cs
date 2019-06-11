@@ -19,7 +19,7 @@ public class SlotGenerator : MonoBehaviour {
 	}
 	
 	void  Update (){
-        if (!SessionAssistant.main.enabled) return;
+        if (!MatchThree.main.enabled) return;
 		
 		if (slot.chip) return; 
 		

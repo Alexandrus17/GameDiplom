@@ -53,32 +53,32 @@ public class ChangeBG : MonoBehaviour { // изменение заднего ф�
     
     public void UpdateStatusDevice()
     {
-        if (SessionAssistant.main.coffeevarka)
+        if (MatchThree.main.coffeevarka)
             Sprcoffeevarka.sprite= ArtImageInRoom[1];
         else
             Sprcoffeevarka.sprite = ArtImageInRoom[0];
 
-        if (SessionAssistant.main.multvarka)
+        if (MatchThree.main.multvarka)
             Sprmultvarka.sprite = ArtImageInRoom[3];
         else
             Sprmultvarka.sprite = ArtImageInRoom[2];
 
-        if (SessionAssistant.main.icebox)
+        if (MatchThree.main.icebox)
             Spricebox.sprite = ArtImageInRoom[5];
         else
             Spricebox.sprite = ArtImageInRoom[4];
 
-        if (SessionAssistant.main.shower)
+        if (MatchThree.main.shower)
             Sprshower.sprite = ArtImageInRoom[7];
         else
             Sprshower.sprite = ArtImageInRoom[6];
 
-        if (SessionAssistant.main.bed)
+        if (MatchThree.main.bed)
             Sprbad.sprite = ArtImageInRoom[9];
         else
             Sprbad.sprite = ArtImageInRoom[8];
 
-        if (SessionAssistant.main.computer)
+        if (MatchThree.main.computer)
             Sprcomputer.sprite = ArtImageInRoom[11];
         else
             Sprcomputer.sprite = ArtImageInRoom[10];

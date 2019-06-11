@@ -27,13 +27,13 @@ public class CrossBomb : IBomb, IAnimateChip, IChipLogic {
 	
 	void  Awake (){
 		_chip = GetComponent<Chip>();
-		birth = SessionAssistant.main.eventCount;
+		birth = MatchThree.main.eventCount;
 		AudioAssistant.Shot ("CreateCrossBomb");
 	}
 
     
     public IEnumerator Destroying() {
-        if (birth == SessionAssistant.main.eventCount) {
+        if (birth == MatchThree.main.eventCount) {
             chip.destroying = false;
             yield break;
         }
@@ -149,7 +149,7 @@ public class CrossBomb : IBomb, IAnimateChip, IChipLogic {
     IEnumerator CrossSimpleMixRoutine(Chip secondary) {
         chip.busy = true;
         chip.destroyable = false;
-        SessionAssistant.main.EventCounter();
+        MatchThree.main.EventCounter();
 
         Transform effect = ContentAssistant.main.GetItem("SimpleCrossMixEffect").transform;
         effect.SetParent(Slot.folder);
@@ -218,7 +218,7 @@ public class CrossBomb : IBomb, IAnimateChip, IChipLogic {
     IEnumerator CrossMixRoutine(Chip secondary) {
         chip.busy = true;
         chip.destroyable = false;
-        SessionAssistant.main.EventCounter();
+        MatchThree.main.EventCounter();
 
         Transform effect = ContentAssistant.main.GetItem("CrossMixEffect").transform;
         effect.SetParent(Slot.folder);

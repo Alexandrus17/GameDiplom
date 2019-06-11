@@ -41,7 +41,7 @@ public class ScoreStar : MonoBehaviour {
 			case StarType.Third: target = LevelProfile.main.thirdStarScore; break;
 		}
 
-            filled = target <= SessionAssistant.main.score;
+            filled = target <= MatchThree.main.score;
 
         if (anim)
             anim.enabled = filled;

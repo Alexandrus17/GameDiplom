@@ -61,17 +61,17 @@ public class Level : MonoBehaviour {
 
       if (key <= 18)
         {
-            Debug.Log("Усложнение уровня на" +SessionAssistant.main.LifeDays);
-            LevelProfile.main.firstStarScore = 100 + (5 * (SessionAssistant.main.LifeDays - 1));
-            LevelProfile.main.secondStarScore = 200 + (10 * (SessionAssistant.main.LifeDays - 1));
-            LevelProfile.main.thirdStarScore = 300 + (15 * (SessionAssistant.main.LifeDays - 1));
+            Debug.Log("Усложнение уровня на" +MatchThree.main.LifeDays);
+            LevelProfile.main.firstStarScore = 100 + (5 * (MatchThree.main.LifeDays - 1));
+            LevelProfile.main.secondStarScore = 200 + (10 * (MatchThree.main.LifeDays - 1));
+            LevelProfile.main.thirdStarScore = 300 + (15 * (MatchThree.main.LifeDays - 1));
         }
       else
         {
-            Debug.Log("Усложнение Увеличения дохода на" +SessionAssistant.main.LifeDays);
-            LevelProfile.main.firstStarScore = 200 + (10 * (SessionAssistant.main.LifeDays - 1));
-            LevelProfile.main.secondStarScore = 400 + (20 * (SessionAssistant.main.LifeDays - 1));
-            LevelProfile.main.thirdStarScore = 600 + (30 * (SessionAssistant.main.LifeDays - 1));
+            Debug.Log("Усложнение Увеличения дохода на" +MatchThree.main.LifeDays);
+            LevelProfile.main.firstStarScore = 200 + (10 * (MatchThree.main.LifeDays - 1));
+            LevelProfile.main.secondStarScore = 400 + (20 * (MatchThree.main.LifeDays - 1));
+            LevelProfile.main.thirdStarScore = 600 + (30 * (MatchThree.main.LifeDays - 1));
         }
 
 

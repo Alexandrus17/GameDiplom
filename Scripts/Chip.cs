@@ -148,7 +148,7 @@ public class Chip : MonoBehaviour, IAnimateChip {
             if (velocity > 0)
                 velocity -= velocity * Mathf.Min(1f, Time.deltaTime * 3);
 
-            if (!SessionAssistant.main.isPlaying || busy || destroying)
+            if (!MatchThree.main.isPlaying || busy || destroying)
                 continue;
             
 
@@ -184,7 +184,7 @@ public class Chip : MonoBehaviour, IAnimateChip {
                             transform.position = lastPosition;
                         else {
                             busy = false;
-                            movementID = SessionAssistant.main.GetMovementID();
+                            movementID = MatchThree.main.GetMovementID();
                             velocity *= 0.5f;
                             OnHit();
                             break;
@@ -322,8 +322,8 @@ public class Chip : MonoBehaviour, IAnimateChip {
 
     
     public void  SetScore (float s){
-		SessionAssistant.main.score += Mathf.RoundToInt(s * SessionAssistant.scoreC);
-		ScoreBubble.Bubbling(Mathf.RoundToInt(s * SessionAssistant.scoreC), transform, id);
+		MatchThree.main.score += Mathf.RoundToInt(s * MatchThree.scoreC);
+		ScoreBubble.Bubbling(Mathf.RoundToInt(s * MatchThree.scoreC), transform, id);
     }
 
 	
@@ -334,7 +334,7 @@ public class Chip : MonoBehaviour, IAnimateChip {
 	
 	IEnumerator  FlashingUntil (int eventCount){
         Play("Flashing");
-		while (eventCount == SessionAssistant.main.eventCount) yield return 0;
+		while (eventCount == MatchThree.main.eventCount) yield return 0;
 		if (!this) yield break;
         Complete("Flashing");
 	}
@@ -349,7 +349,7 @@ public class Chip : MonoBehaviour, IAnimateChip {
 
     public static void Swap(Chip chip, Side side) {
         if (chip.slot && chip.slot[side])
-            SessionAssistant.main.SwapByPlayer(chip, chip.slot[side].chip, false);
+            MatchThree.main.SwapByPlayer(chip, chip.slot[side].chip, false);
     }
 
     public void Reset() {
