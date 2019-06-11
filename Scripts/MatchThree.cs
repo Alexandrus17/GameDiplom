@@ -58,7 +58,7 @@ public class MatchThree : MonoBehaviour
             return 0;
         });
     }
-    void Start() // стандартная функция Unity, запускается 1 раз в самом начале
+    void Start() // стандартная функция Unity, запускается 1 раз в начале
 	{ 
         DebugPanel.AddDelegate("Complete the level", () => {
             if (isPlaying) {
@@ -86,13 +86,13 @@ public class MatchThree : MonoBehaviour
             }
         });
     }
-    void OnApplicationPause(bool pauseStatus) // Функция, ставящая игру на паузу
+    void OnApplicationPause() // Функция, запускаемая при постановке игры на паузу
 	{ 
         if (isPlaying)
             UIAssistant.main.ShowPage("Pause");
     }
     
-    public static void Reset() // Функция, устанавливающая значение переменых при старте нового уровня
+    public static void Reset() // Функция, устанавливающая значение переменных при старте нового уровня
 	{  
 		main.stars = 0;
         main.eventCount = 0;
@@ -124,7 +124,7 @@ public class MatchThree : MonoBehaviour
     TimeMinute += 5 * movess;
     Parametrs.main.MovesinGame += movess;
     }
-    public void MixChips(Chip a, Chip b) // Функция, меняющиая местами элементы 
+    public void MixChips(Chip a, Chip b) // Функция, меняющая местами элементы 
 	{  
         Mix mix = Mix.FindMix(a.chipType, b.chipType);
         if (mix == null)
@@ -204,14 +204,14 @@ public class MatchThree : MonoBehaviour
     {
         return score;
     }
-    IEnumerator PlayLevelRoutine(int level)  // корутина, запускающая уровень
+    IEnumerator PlayLevelRoutine(int level)  // программа, запускающая уровень
 	{
         yield return StartCoroutine(QuitCoroutine());
         while (CPanel.uiAnimation > 0)
             yield return 0;
         Level.LoadMyLev(level);
     }
-    public void RestartLevel()     // корутина, перезапускающая уровень
+    public void RestartLevel()     // программа, перезапускающая уровень
 	{ 
         if (CPanel.uiAnimation > 0)
             return;
@@ -325,7 +325,7 @@ public class MatchThree : MonoBehaviour
         outOfLimit = true;
         
     }
-    // прогрмма поиска и уничтожения комбинаций соотвествующи правилам игры
+    // программа поиска и уничтожения комбинаций соответствующих правилам игры
     IEnumerator FindingSolutionsRoutine() {
         List<Solution> solutions;
         int id = 0;
@@ -369,7 +369,7 @@ public class MatchThree : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StartNavel.main.MessQuit();
     }
-    // прогмаа активации бомб
+    // программа активации бомб
     IEnumerator CollapseAllPowerups() {
         yield return StartCoroutine(Utils.WaitFor(CanIWait, 0.5f));
         List<Chip> powerUp = FindPowerups();
@@ -385,7 +385,7 @@ public class MatchThree : MonoBehaviour
         }
         yield return StartCoroutine(Utils.WaitFor(CanIWait, 0.5f));
     }
-    // нахождение необохдимой бомбы
+    // нахождение необходимой бомбы
     List<Chip> FindPowerups() {
         return FindObjectsOfType<IBomb>().Select(x => x.GetComponent<Chip>()).ToList();
     }
@@ -396,7 +396,7 @@ public class MatchThree : MonoBehaviour
         GameCamera.main.HideField();
         UIAssistant.main.ShowPage("YouLose");
     }
-    // проигрышь в игре
+    // проигрыш в игре
     void ShowLoseGamePopup()
     {
         AudioAssistant.Shot("YouLose");
@@ -404,7 +404,7 @@ public class MatchThree : MonoBehaviour
         GameCamera.main.HideField();
         UIAssistant.main.ShowPage("YouLoseGame");
     } 
-    // прогрмма,запускающая определеные деуйствия при выйгрыше в игре
+    // программа, запускающая определённые действия при выигрыше в игре
     IEnumerator YouWin() 
 	{
         AudioAssistant.Shot("YouWin");
@@ -426,7 +426,7 @@ public class MatchThree : MonoBehaviour
         AnimationAssistant.main.Ferverk(1);
         UserProfileUtils.WriteProfileOnDevice(ProfileAssistant.main.local_profile);
     }
-     // показывает окно выйгрыша
+     // показывает окно при победе
 	public void ShowYouWinPopup() {
         bool bestScore = false;
         if (ProfileAssistant.main.local_profile.GetScore(LevelProfile.main.level) < score)
@@ -444,7 +444,7 @@ public class MatchThree : MonoBehaviour
     public void EventCounter() {
         eventCount++;
     }
-    // фукция поиска возможных ходов
+    // функция  поиска возможных ходов
     public List<Move> FindMoves() {
         List<Move> moves = new List<Move>();
         if (!FieldAssistant.main.gameObject.activeSelf)
@@ -509,7 +509,7 @@ public class MatchThree : MonoBehaviour
         fChip.slot.chip = tChip;
         slot.chip = fChip;
     }
-    // проверяет, если ли 3 или более элементов в одном ряду и удалает их
+    // проверяет, если ли 3 или более элементов в одном ряду и удаляет их
 	void MatchSolutions(List<Solution> solutions) {
         
         if (!isPlaying)
@@ -621,7 +621,7 @@ public class MatchThree : MonoBehaviour
             }
         }
     }
-    // програма меняющая местами элементы
+    // программа  меняющая местами элементы
     public IEnumerator Shuffle(bool f) {
         bool force = f;
         List<Move> moves = FindMoves();
