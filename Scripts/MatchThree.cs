@@ -27,7 +27,7 @@ public class MatchThree : MonoBehaviour
     public bool firstChipGeneration = false;
     public int matchCount = 0;
     public int stars;
-    // Добавленые параметры
+    //Параметры
     public int eat;
     public int energy;
     public int money;
@@ -40,7 +40,7 @@ public class MatchThree : MonoBehaviour
     public bool shower;
     public bool bed;
     public bool computer;
-    //время
+    //Время
     public int TimeMinute;
     public int TimeHour;
     public int LifeDays;
